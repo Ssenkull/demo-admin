@@ -19,14 +19,14 @@ export default function AdminPage() {
   const [tags, setTags] = useState("");
 
   async function loadGames() {
-    const res = await fetch("http://localhost:3001/games");
+    const res = await fetch("http://165.227.142.10:3001/games");
     const data = await res.json();
     setGames(data);
   }
 
   async function addGame() {
     if (!title) return;
-    await fetch("http://localhost:3001/games", {
+    await fetch("http://165.227.142.10:3001/games", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -47,7 +47,7 @@ export default function AdminPage() {
   }
 
   async function deleteGame(id: number) {
-    await fetch(`http://localhost:3001/games/${id}`, { method: "DELETE" });
+    await fetch(`http://165.227.142.10:3001/games/${id}`, { method: "DELETE" });
     loadGames();
   }
 
